@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+.env
+
+# VS Code / PyCharm
+.vscode/
+.idea/
+
+# Docker
+*.pid
+*.seed
+celerybeat-schedule
+
+# Migrations (si no quieres versionarlas)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Node (si hay frontend embebido)
+node_modules/
