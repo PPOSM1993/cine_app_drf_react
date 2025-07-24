@@ -10,8 +10,9 @@ class Room(models.Model):
 
     name = models.CharField(max_length=100, unique=True)
     capacity = models.PositiveIntegerField()
-    type = models.CharField(max_length=10, choices=ROOM_TYPES, default='2D')
-
+    type = models.CharField(max_length=200, choices=ROOM_TYPES, default='2D')
+    num_rows = models.PositiveIntegerField(default=0)  # 👈 nuevo
+    seats_per_row = models.PositiveIntegerField(default=0)  # 👈 nuevo
     def __str__(self):
         return f"{self.name} ({self.type})"
 
@@ -38,7 +39,7 @@ class Seat(models.Model):
     room = models.ForeignKey(Room, related_name='seats', on_delete=models.CASCADE)
     row = models.CharField(max_length=5)
     number = models.PositiveIntegerField()
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='available')
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='available')
     seat_type = models.CharField(max_length=20, choices=SEAT_TYPE_CHOICES, default='normal')
     is_vip = models.BooleanField(default=False)  # Conservado por compatibilidad si ya lo usas
     is_accessible = models.BooleanField(default=False)
@@ -61,6 +62,8 @@ class Seat(models.Model):
         return f"{self.row}{self.number}"
 
     def save(self, *args, **kwargs):
-        if self.pk is None and self.room.seats.count() >= self.room.capacity:
-            raise ValueError("La sala ya alcanzó su capacidad máxima de asientos.")
+        # Si el objeto no tiene id, es creación (nuevo asiento)
+        if self._state.adding:
+            if self.room.seats.count() >= self.room.capacity:
+                raise ValueError("La sala ya alcanzó su capacidad máxima de asientos.")
         super().save(*args, **kwargs)
