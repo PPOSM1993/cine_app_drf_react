@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/authentication/', include('apps.authentication.urls')),
     path('api/movies/', include('apps.movies.urls')),
     path('api/seats/', include('apps.seats.urls')),
+    path('api/schedules/', include('apps.schedules.urls')),
 ]
