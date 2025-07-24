@@ -16,13 +16,14 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+    'rest_framework_simplejwt',
 
     # Apps locales
     'apps.authentication',
     'apps.movies',
     #'apps.cinema',
-    #'apps.seats',
-    #'apps.schedules',
+    'apps.seats',
+    'apps.schedules',
     #'apps.tickets',
     #'apps.reservations',
     #'apps.notifications',

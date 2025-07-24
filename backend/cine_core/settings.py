@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_filters',
+    'rest_framework_simplejwt',
 
     'apps.authentication',
     'apps.movies',
     'apps.seats',
+    'apps.schedules'
 ]
 
 MIDDLEWARE = [
