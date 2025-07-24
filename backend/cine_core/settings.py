@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django_filters',
 
     'apps.authentication',
-    'apps.movies'
+    'apps.movies',
+    'apps.seats',
 ]
 
 MIDDLEWARE = [
