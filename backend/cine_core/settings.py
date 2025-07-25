@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'apps.promotions',
     'apps.boleteros',
     'apps.qrscanner',
+    'apps.cinema',
 ]
 
 MIDDLEWARE = [
