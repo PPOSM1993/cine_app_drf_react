@@ -26,12 +26,12 @@ INSTALLED_APPS = [
     'apps.schedules',
     'apps.tickets',
     'apps.reservations',
-    #'apps.notifications',
+    'apps.notifications',
     #'apps.promotions',
-    #'apps.payments',
-    #'apps.support',
-    #'apps.analytics',
-    #'apps.fidelizacion',
+    'apps.payments',
+    'apps.support',
+    'apps.analytics',
+    'apps.fidelizacion',
     #'apps.boleteros',
 ]
 
