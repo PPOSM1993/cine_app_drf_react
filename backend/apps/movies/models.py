@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from apps.seats.models import *
+from apps.cinema.models import Auditorium
 class Genre(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
@@ -149,6 +150,8 @@ class ShowTime(models.Model):
     end_time = models.DateTimeField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
     is_active = models.BooleanField(default=True)
+    auditorium = models.ForeignKey(Auditorium, on_delete=models.CASCADE, related_name='showtimes')
+
 
     def __str__(self):
         return f"{self.movie.title} - {self.start_time} ({self.room.name})"

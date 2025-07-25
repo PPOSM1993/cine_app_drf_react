@@ -33,4 +33,5 @@ urlpatterns = [
     path('api/promotions/', include('apps.promotions.urls')),
     path('api/boleteros/', include('apps.boleteros.urls')),
     path('api/qrscanner', include('apps.qrscanner.urls')),
+    path('api/cinema/', include('apps.cinema.urls'))
 ]
