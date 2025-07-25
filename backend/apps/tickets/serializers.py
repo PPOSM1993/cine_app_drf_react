@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from .models import Ticket
-from reservations.models import Reservation
-from schedules.models import Schedule
-from seats.models import Seat
+from apps.reservations.models import Reservation
+from apps.schedules.models import Schedule
+from apps.seats.models import Seat
 from django.utils import timezone
 
 class TicketSerializer(serializers.ModelSerializer):

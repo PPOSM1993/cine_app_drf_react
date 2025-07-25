@@ -49,6 +49,12 @@ INSTALLED_APPS = [
     'apps.schedules',
     'apps.reservations',
     'apps.tickets',
+    'apps.payments',
+    'apps.notifications',
+    'apps.support',
+    'apps.analytics',
+    'apps.fidelizacion',
+    'apps.promotions'
 ]
 
 MIDDLEWARE = [
@@ -143,7 +149,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'authentication.User'
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter'
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
 }
