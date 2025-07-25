@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.seats',
     'apps.schedules',
     'apps.reservations',
+    'apps.tickets',
 ]
 
 MIDDLEWARE = [
