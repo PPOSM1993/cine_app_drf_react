@@ -30,5 +30,7 @@ urlpatterns = [
     path('api/support/', include('apps.support.urls')),
     path('api/analytics/', include('apps.analytics.urls')),
     path('api/fidelizacion/', include('apps.fidelizacion.urls')),
-    path('api/promotions/', include('apps.promotions.urls'))
+    path('api/promotions/', include('apps.promotions.urls')),
+    path('api/boleteros/', include('apps.boleteros.urls')),
+    path('api/qrscanner', include('apps.qrscanner.urls')),
 ]

@@ -27,12 +27,13 @@ INSTALLED_APPS = [
     'apps.tickets',
     'apps.reservations',
     'apps.notifications',
-    #'apps.promotions',
+    'apps.promotions',
     'apps.payments',
     'apps.support',
     'apps.analytics',
     'apps.fidelizacion',
-    #'apps.boleteros',
+    'apps.boleteros',
+    'apps.qrscanner',
 ]
 
 MIDDLEWARE = [

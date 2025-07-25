@@ -54,7 +54,9 @@ INSTALLED_APPS = [
     'apps.support',
     'apps.analytics',
     'apps.fidelizacion',
-    'apps.promotions'
+    'apps.promotions',
+    'apps.boleteros',
+    'apps.qrscanner',
 ]
 
 MIDDLEWARE = [
