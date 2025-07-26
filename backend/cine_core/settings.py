@@ -71,6 +71,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    #"https://example.com",
+    #"https://sub.example.com",
+    "http://localhost:5173",
+    #"http://127.0.0.1:9000",
+]
+
 ROOT_URLCONF = 'cine_core.urls'
 
 TEMPLATES = [
