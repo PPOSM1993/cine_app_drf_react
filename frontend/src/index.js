@@ -2,6 +2,7 @@ export { default as App } from './App';
 export { default as Button } from './components/atoms/Button';
 export { default as CanvasBackground } from './components/atoms/CanvasBackground';
 export { default as GoogleButton } from './components/atoms/GoogleButton';
+export { default as HeaderBackground3D } from './components/molecules/HeaderBackground3D';
 export { default as LogoWithText } from './components/molecules/LogoWithText';
 export { default as MovieCarousel } from './components/molecules/MovieCarousel';
 export { default as Header } from './components/organisms/Header';
