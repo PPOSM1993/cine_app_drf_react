@@ -1,7 +1,14 @@
 export { default as App } from './App';
+export { default as Button } from './components/atoms/Button';
+export { default as CanvasBackground } from './components/atoms/CanvasBackground';
 export { default as GoogleButton } from './components/atoms/GoogleButton';
-export { default as LoginBox } from './components/organisms/LoginBox';
-export { default as LoginPage } from './components/pages/LoginPage';
-export { default as AuthTemplate } from './components/templates/AuthTemplate';
+export { default as LogoWithText } from './components/molecules/LogoWithText';
+export { default as MovieCarousel } from './components/molecules/MovieCarousel';
+export { default as Header } from './components/organisms/Header';
+export { default as HeroWelcome } from './components/organisms/HeroWelcome';
+export { default as WelcomeContent } from './components/organisms/WelcomeContent';
+export { default as WelcomePage } from './components/pages/WelcomePage';
 export * from './firebase/config';
 export * from './main';
+export { default as AppRouter } from './routes/AppRouter';
+export { default as authStore } from './store/authStore';
