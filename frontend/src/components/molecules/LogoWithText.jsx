@@ -1,9 +1,12 @@
 // src/components/molecules/LogoWithText.jsx
+import logo from '../../assets/logo.png'; // cambia según la ruta real
+
 const LogoWithText = () => {
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-yellow-400 font-bold text-xl">🎬 CineWave</span>
-    </div>
+  <div className="flex items-center space-x-1">
+    <img src={logo} alt="Logo Cine" className="h-10 w-auto" />
+    <span className="text-xl font-bold text-BLACK tracking-wide">PopCorn Cinema</span>
+  </div>
   );
 };
 
