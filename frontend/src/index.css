@@ -97,3 +97,18 @@
 .w-auto {
   width: auto; /* se adapta al tamaño del logo */
 }
+
+/* Ocultar scrollbar (scroll sigue funcionando) */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 120, 0.6);
+  transition: box-shadow 0.3s ease;
+}
