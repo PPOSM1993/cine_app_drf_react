@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const upcomingMovies = [
     {
@@ -29,7 +30,15 @@ const upcomingMovies = [
         releaseDate: "Marzo 2026",
         tag: "Muy pronto",
     },
+        {
+        id: 5,
+        title: "Dune: Parte 3",
+        image: "/images/dune3.jpg",
+        releaseDate: "Marzo 2026",
+        tag: "Muy pronto",
+    },
 ];
+
 
 export default function UpcomingSlider() {
     const sliderRef = useRef();
@@ -45,51 +54,52 @@ export default function UpcomingSlider() {
     };
 
     return (
-        <section className="w-full bg-[#F1F1F1] py-12 relative">
+        <section className="relative w-full py-16 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden ">
             <div className='max-w-6xl mx-auto px-4'>
-                <h2 className="text-3xl md:text-4xl text-white font-bold text-center mb-6">
+                <h2 className="text-3xl md:text-4xl text-black font-bold text-center mb-6">
                     🎟️ Preventa y Próximos Estrenos
                 </h2>
+                <div className="relative">
+                    {/* Botón Prev */}
 
-                {/* Botón Prev */}
-                <button
-                    onClick={() => scroll("left")}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 p-2 rounded-full"
-                >
-                    ◀
-                </button>
+                    <button
+                        onClick={() => scroll("left")}
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 p-1.5 rounded-full text-white"
+                    >
+                        <ChevronLeft className="w-6 h-6" />
+                    </button>
 
-                {/* Botón Next */}
-                <button
-                    onClick={() => scroll("right")}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 p-2 rounded-full"
-                >
-                    ▶
-                </button>
+                    <button
+                        onClick={() => scroll("right")}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 p-1.5 rounded-full text-white"
+                    >
+                        <ChevronRight className="w-6 h-6" />
+                    </button>
 
-                <div className="overflow-x-auto scrollbar-hide px-6" ref={sliderRef}>
-                    <div className="flex space-x-6 snap-x snap-mandatory scroll-smooth">
-                        {upcomingMovies.map((movie) => (
-                            <div
-                                key={movie.id}
-                                className="min-w-[240px] snap-center shrink-0 bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
-                            >
-                                <img
-                                    src={movie.image}
-                                    alt={movie.title}
-                                    className="w-full h-64 object-cover"
-                                />
-                                <div className="p-4">
-                                    <span className="text-xs text-red-500 font-bold uppercase">
-                                        {movie.tag}
-                                    </span>
-                                    <h3 className="text-white text-lg font-semibold mt-1">
-                                        {movie.title}
-                                    </h3>
-                                    <p className="text-gray-400 text-sm">{movie.releaseDate}</p>
+                    <div className="overflow-x-auto scrollbar-hide px-6" ref={sliderRef}>
+                        <div className="flex space-x-6 snap-x snap-mandatory scroll-smooth">
+                            {upcomingMovies.map((movie) => (
+                                <div
+                                    key={movie.id}
+                                    className="min-w-[240px] snap-center shrink-0 bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
+                                >
+                                    <img
+                                        src={movie.image}
+                                        alt={movie.title}
+                                        className="w-full h-64 object-cover"
+                                    />
+                                    <div className="p-4">
+                                        <span className="text-xs text-red-500 font-bold uppercase">
+                                            {movie.tag}
+                                        </span>
+                                        <h3 className="text-white text-lg font-semibold mt-1">
+                                            {movie.title}
+                                        </h3>
+                                        <p className="text-gray-400 text-sm">{movie.releaseDate}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

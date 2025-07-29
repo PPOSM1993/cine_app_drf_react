@@ -8,7 +8,27 @@ export default function PopularMovies() {
       rating: "⭐ 8.4",
       tag: "Terror",
     },
-    // + más
+    {
+      id: 2,
+      title: "Minions 3",
+      image: "/minions.jpg",
+      rating: "⭐ 7.1",
+      tag: "Animación",
+    },
+    {
+      id: 3,
+      title: "Amor de Verano",
+      image: "/romance.jpg",
+      rating: "⭐ 8.1",
+      tag: "Romance",
+    },
+    {
+      id: 4,
+      title: "El Chascarro",
+      image: "/comedia.jpg",
+      rating: "⭐ 6.9",
+      tag: "Comedia",
+    },
   ];
 
   return (
@@ -20,7 +40,11 @@ export default function PopularMovies() {
             key={movie.id}
             className="bg-gray-900 rounded-lg overflow-hidden shadow-md hover:scale-105 transition duration-300"
           >
-            <img src={movie.image} alt={movie.title} className="h-48 w-full object-cover" />
+            <img
+              src={movie.image}
+              alt={movie.title}
+              className="h-48 w-full object-cover"
+            />
             <div className="p-3">
               <span className="text-sm text-red-400">{movie.tag}</span>
               <h3 className="font-semibold">{movie.title}</h3>

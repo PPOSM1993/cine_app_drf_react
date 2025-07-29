@@ -23,7 +23,7 @@ export default function MovieCarrousel() {
   };
 
   return (
-    <section className="w-full relative px-6 py-10 bg-gray-900 overflow-hidden">
+    <section className="relative w-full py-20 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-white mb-6 text-center">Películas Destacadas</h2>
 
