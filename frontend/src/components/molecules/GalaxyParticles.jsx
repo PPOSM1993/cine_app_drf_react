@@ -21,7 +21,7 @@ export default function GalaxyParticles() {
 
   return (
     <points ref={particlesRef} geometry={geometry}>
-      <pointsMaterial size={0.1} color="#ffffff" sizeAttenuation depthWrite={false} />
+      <pointsMaterial size={0.1} color="#11111F" sizeAttenuation depthWrite={false} />
     </points>
   );
 }

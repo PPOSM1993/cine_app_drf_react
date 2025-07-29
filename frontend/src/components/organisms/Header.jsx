@@ -15,7 +15,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#f1f1f1] bg-opacity-90 md:bg-opacity-70 backdrop-blur-md text-black transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black backdrop-blur-md text-white transition-all duration-300">
 
       <div className="max-w-7xl mx-auto px-2 py-4 flex justify-between items-center">
         {/* Logo a la izquierda */}
