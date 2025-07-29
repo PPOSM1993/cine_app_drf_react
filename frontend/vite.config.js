@@ -8,4 +8,11 @@ export default defineConfig({
     react(),
     tailwindcss(),
 ],
+  server: {
+    historyApiFallback: true, // Para dev server (por si acaso)
+  },
+  build: {
+    rollupOptions: {
+      input: '/index.html',
+    },}
 })
