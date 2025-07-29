@@ -1,13 +1,13 @@
 import React from "react";
-import { WelcomePage } from "../index";
-import { BrowserRouter as Router } from 'react-router-dom';
-
-
+import { Routes, Route, Navigate } from "react-router-dom";
+import { WelcomePage, Login } from "../index";
 
 export default function AppRouter() {
-    <Router>
-
-        <Route path="" element={<WelcomePage />} />
-
-    </Router>
+  return (
+    <Routes>
+      <Route path="/" element={<WelcomePage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  );
 }

@@ -1,10 +1,10 @@
 import React from "react"
-import { WelcomePage } from "./index"
+import { AppRouter } from "./index"
 
 function App() {
   return (
     <>
-      <WelcomePage />
+      <AppRouter />
     </>
   )
 }

@@ -1,4 +1,5 @@
 export { default as App } from './App';
+export * from './components/SharedLayout';
 export { default as Button } from './components/atoms/Button';
 export { default as CanvasBackground } from './components/atoms/CanvasBackground';
 export { default as GoogleButton } from './components/atoms/GoogleButton';
@@ -17,6 +18,9 @@ export { default as PopularMovies } from './components/organisms/PopularMovies';
 export { default as UpcomingSlider } from './components/organisms/UpcomingSlider';
 export { default as WelcomeContent } from './components/organisms/WelcomeContent';
 export { default as WelcomePage } from './components/pages/WelcomePage';
+export * from './components/pages/auth/ForgorPassword';
+export { default as Login } from './components/pages/auth/Login';
+export { default as Register } from './components/pages/auth/Register';
 export * from './firebase/config';
 export * from './main';
 export { default as AppRouter } from './routes/AppRouter';
