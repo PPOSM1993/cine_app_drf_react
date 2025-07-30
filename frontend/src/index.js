@@ -1,4 +1,6 @@
 export { default as App } from './App';
+export * from './api/auth';
+export { default as axios } from './api/axios';
 export * from './components/SharedLayout';
 export { default as Button } from './components/atoms/Button';
 export { default as CanvasBackground } from './components/atoms/CanvasBackground';
@@ -25,4 +27,5 @@ export { default as Register } from './components/pages/auth/Register';
 export * from './firebase/config';
 export * from './main';
 export { default as AppRouter } from './routes/AppRouter';
+export { default as PrivateRoute } from './routes/PrivateRoute';
 export { default as authStore } from './store/authStore';
