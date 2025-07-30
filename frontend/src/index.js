@@ -17,6 +17,7 @@ export { default as MovieTiltGroup } from './components/organisms/MovieTiltGroup
 export { default as PopularMovies } from './components/organisms/PopularMovies';
 export { default as UpcomingSlider } from './components/organisms/UpcomingSlider';
 export { default as WelcomeContent } from './components/organisms/WelcomeContent';
+export { default as Home } from './components/pages/Home';
 export { default as WelcomePage } from './components/pages/WelcomePage';
 export { default as ForgorPassword } from './components/pages/auth/ForgorPassword';
 export { default as Login } from './components/pages/auth/Login';
