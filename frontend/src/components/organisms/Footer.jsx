@@ -40,10 +40,10 @@ export default function Footer() {
       transition={{ duration: 0.8 }}
       className="relative w-full py-16 bg-gradient-to-b bg-gray-900 to-black to-black text-white overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Column 1: Logo + redes */}
         <div className="py-1">
-          <h3 className="text-xl font-bold mb-3">🎥 CineApp</h3>
+          <h3 className="text-xl font-bold mb-4">🎥 CineApp</h3>
           <p className="text-sm text-gray-300">
             Tu cine favorito en línea. Explora estrenos, preventas y mucho más.
           </p>
@@ -56,8 +56,8 @@ export default function Footer() {
         </div>
 
         {/* Column 2: Links */}
-        <div className="mt-1">
-          <h4 className="text-md font-semibold mb-3">Navegación</h4>
+        <div className="mt-1 justify-center px-10">
+          <h4 className="text-md font-semibold mb-4">Navegación</h4>
           <ul className="space-y-2 text-sm text-gray-300">
             <li>
               <Link to="/" className="hover:text-white transition">Inicio</Link>
@@ -76,7 +76,7 @@ export default function Footer() {
 
         {/* Column 3: Newsletter */}
         <div>
-          <h4 className="text-md font-semibold mb-3">Newsletter</h4>
+          <h4 className="text-md font-semibold mb-4">Newsletter</h4>
           <p className="text-sm text-gray-300 mb-2">
             Recibe noticias, estrenos y promociones directamente en tu correo.
           </p>
@@ -98,17 +98,6 @@ export default function Footer() {
           </form>
         </div>
 
-        {/* Column 4: Preferencias */}
-        <div className="flex flex-col gap-3">
-          <h4 className="text-md font-semibold mb-3">Preferencias</h4>
-          <button
-            onClick={toggleDark}
-            className="flex items-center gap-2 px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 transition text-sm"
-          >
-            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-            {darkMode ? "Modo Claro" : "Modo Oscuro"}
-          </button>
-        </div>
       </div>
 
       {/* Bottom copyright */}

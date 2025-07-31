@@ -16,3 +16,7 @@ export const loginUser = async (username, password) => {
     throw error;
   }
 };
+
+export const registerUser = async (formData) => {
+  return await axios.post(`${API_BASE_URL}register/`, formData);
+};
