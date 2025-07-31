@@ -13,7 +13,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#f1f1f1] bg-opacity-90 md:bg-opacity-70 backdrop-blur-md text-black transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-br from-[#0f172a] to-[#1e293b] backdrop-blur-md text-white transition-all duration-300">
 
       <div className="max-w-7xl mx-auto px-2 py-4 flex justify-between items-center">
         {/* Logo a la izquierda */}
@@ -48,7 +48,7 @@ export default function Header() {
           </div>
         </nav>
         {/* Botón burger móvil */}
-        <button className="md:hidden text-black" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -61,7 +61,7 @@ export default function Header() {
             onClick={() => setIsOpen(false)}
           />
           {/* Menú lateral con slide-in y scroll */}
-          <div className="absolute top-0 right-0 h-screen w-full sm:w-[95%] bg-[#F0F0F0] text-black z-50 shadow-lg animate-slide-in-right overflow-y-auto">
+          <div className="absolute top-0 right-0 h-screen w-full sm:w-[95%] bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white z-50 shadow-lg animate-slide-in-right overflow-y-auto">
             <div className="flex flex-col h-full">
               {/* Botón cerrar */}
               <div className="flex justify-end p-4">

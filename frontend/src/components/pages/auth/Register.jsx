@@ -2,36 +2,82 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GoogleButton } from "../../../index";
 import logo from "../../../assets/logo.png";
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function Register() {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
-    email: "",
-    username: "",
-    first_name: "",
-    last_name: "",
-    rut: "",
-    password: "",
-    confirm_password: "",
-    accepted_terms: false,
+    email: '',
+    username: '',
+    first_name: '',
+    last_name: '',
+    rut: '',
+    password: '',
+    password2: '',
+    accepted_terms: false
   });
 
-  const handleChange = (e) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = e => {
     const { name, value, type, checked } = e.target;
-    setForm({
-      ...form,
-      [name]: type === "checkbox" ? checked : value,
-    });
+    setForm({ ...form, [name]: type === 'checkbox' ? checked : value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    if (form.password !== form.confirm_password) {
-      alert("Las contraseñas no coinciden");
+    setLoading(true);
+
+    if (form.password !== form.password2) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Contraseñas no coinciden',
+        confirmButtonColor: '#ffcc36'
+      });
+      setLoading(false);
       return;
     }
-    console.log("Registro con:", form);
-    // Aquí luego se conecta el backend
+
+    try {
+      const res = await fetch('http://localhost:8000/api/authentication/register/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        Swal.fire({
+          icon: 'success',
+          title: '¡Registro exitoso!',
+          text: 'Revisa tu correo para confirmar tu cuenta.',
+          confirmButtonColor: '#ffcc36'
+        });
+        navigate('/login');
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al registrar',
+          text: data?.detail || 'Verifica los campos e intenta nuevamente.',
+          confirmButtonColor: '#ffcc36'
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error de red',
+        text: 'No se pudo conectar con el servidor.',
+        confirmButtonColor: '#ffcc36'
+      });
+    }
+
+    setLoading(false);
   };
+
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#0f172a] to-[#1e293b] px-4 py-20">
@@ -107,9 +153,9 @@ export default function Register() {
 
           <input
             type="password"
-            name="confirm_password"
+            name="password2"
             placeholder="Confirmar contraseña"
-            value={form.confirm_password}
+            value={form.password2}
             onChange={handleChange}
             required
             className="w-full px-4 py-2 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-white"
@@ -132,12 +178,31 @@ export default function Register() {
             </label>
           </div>
 
+
+
+
           <button
             type="submit"
-            className="w-full bg-pink-600 hover:bg-pink-700 transition-colors text-white font-semibold py-2 rounded-md"
+            disabled={loading}
+            className={`w-full flex items-center justify-center gap-2 p-2 rounded-md transition duration-300 text-white
+            ${loading ? 'bg-pink-600 hover:bg-pink-700 transition-colors  cursor-pointer' : 'bg-pink-600 hover:bg-pink-700 transition-colors'}
+            text-black font-semibold`}
           >
-            Crear cuenta
+            {loading ? (
+              <>
+                <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                </svg>
+                Cargando...
+              </>
+            ) : (
+              <>
+                Crear Usuario
+              </>
+            )}
           </button>
+
         </form>
 
         <div className="text-center text-sm text-slate-600 dark:text-slate-300">

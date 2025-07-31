@@ -56,7 +56,7 @@ export default function UpcomingSlider() {
     return (
         <section className="relative w-full py-16 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden ">
             <div className='max-w-6xl mx-auto px-4'>
-                <h2 className="text-3xl md:text-4xl text-black font-bold text-center mb-6">
+                <h2 className="text-3xl md:text-4xl text-white font-bold text-center mb-6">
                     🎟️ Preventa y Próximos Estrenos
                 </h2>
                 <div className="relative">
