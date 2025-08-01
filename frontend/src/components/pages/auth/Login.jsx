@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoogleButton } from '../../../index';
 import logo from '../../../assets/logo.png'; // ajusta si cambia la ruta
 import { loginUser } from '../../../api/auth'; // función de login con axios
+import { useEffect } from "react";
 
 export default function Login() {
   const [form, setForm] = useState({
@@ -12,6 +13,13 @@ export default function Login() {
 
   const navigate = useNavigate();
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("access");
+    if (token) {
+      navigate("/home");
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
