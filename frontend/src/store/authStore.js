@@ -1,10 +1,29 @@
 import { create } from 'zustand'
 import { auth, provider } from '../firebase/config'
 import { signInWithPopup, signOut } from 'firebase/auth'
-import {axios} from '../index' // tu configuración con interceptor del token
+import { axios } from '../index' // tu configuración con interceptor del token
 
 const useAuthStore = create((set) => ({
   user: null,
+
+  setUser: (userData) => set({ user: userData }),
+  fetchUser: async () => {
+    try {
+      const access = localStorage.getItem("access");
+      if (access) {
+        const res = await axios.get("/api/auth/user/", {
+          headers: {
+            Authorization: `Bearer ${access}`,
+          },
+        });
+        set({ user: res.data });
+      }
+    } catch (error) {
+      console.error("Error al cargar usuario:", error);
+      set({ user: null });
+    }
+  },
+
 
   // 🔵 LOGIN CON GOOGLE (Firebase)
   loginWithGoogle: async () => {
@@ -41,7 +60,7 @@ const useAuthStore = create((set) => ({
 
   // 🔴 LOGOUT UNIFICADO
   logout: async () => {
-    await signOut(auth).catch(() => {}) // Ignora errores si no estás en Google
+    await signOut(auth).catch(() => { }) // Ignora errores si no estás en Google
     localStorage.removeItem('access')
     localStorage.removeItem('refresh')
     set({ user: null })
