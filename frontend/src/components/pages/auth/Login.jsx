@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { GoogleButton } from '../../../index';
+import { GoogleButton, authStore } from '../../../index';
 import logo from '../../../assets/logo.png'; // ajusta si cambia la ruta
 import { loginUser } from '../../../api/auth'; // función de login con axios
 import { useEffect } from "react";
@@ -10,9 +10,9 @@ export default function Login() {
     username: "",
     password: "",
   });
-
   const navigate = useNavigate();
   const [error, setError] = useState(null);
+  const {fetchUser} = authStore();
 
   useEffect(() => {
     const token = localStorage.getItem("access");
@@ -33,6 +33,7 @@ export default function Login() {
       const data = await loginUser(username, password);
       localStorage.setItem("access", data.access);
       localStorage.setItem("refresh", data.refresh);
+      await fetchUser();
       navigate("/home"); // o a /dashboard o donde prefieras
     } catch (err) {
       console.error(err);

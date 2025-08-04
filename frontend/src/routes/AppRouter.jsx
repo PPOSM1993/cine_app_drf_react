@@ -7,6 +7,7 @@ import {
   ForgorPassword,
   Home,
   PrivateRoute,
+  Profile
 } from "../index"
 
 export default function AppRouter() {
@@ -21,6 +22,7 @@ export default function AppRouter() {
       {/* 🔐 Rutas protegidas */}
       <Route element={<PrivateRoute />}>
         <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
         {/* Agrega aquí otras rutas privadas como /dashboard, /profile, etc. */}
       </Route>
 
