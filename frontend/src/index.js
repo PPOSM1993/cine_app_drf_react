@@ -24,9 +24,6 @@ export { default as WelcomeContent } from './components/organisms/WelcomeContent
 export { default as Home } from './components/pages/Home';
 export { default as Profile } from './components/pages/Profile';
 export { default as WelcomePage } from './components/pages/WelcomePage';
-export { default as ForgorPassword } from './components/pages/auth/ForgorPassword';
-export { default as Login } from './components/pages/auth/Login';
-export { default as Register } from './components/pages/auth/Register';
 export * from './firebase/config';
 export * from './main';
 export { default as AppRouter } from './routes/AppRouter';
