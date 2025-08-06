@@ -2,9 +2,6 @@ import React from "react"
 import { Routes, Route, Navigate } from "react-router-dom"
 import {
   WelcomePage,
-  Login,
-  Register,
-  ForgorPassword,
   Home,
   PrivateRoute,
   Profile
@@ -15,9 +12,6 @@ export default function AppRouter() {
     <Routes>
       {/* 🔓 Rutas públicas */}
       <Route path="/" element={<WelcomePage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/forgot_password" element={<ForgorPassword />} />
 
       {/* 🔐 Rutas protegidas */}
       <Route element={<PrivateRoute />}>
