@@ -1,7 +1,7 @@
-import useAuthStore from '../../store/authStore'
+import { authStore } from '../../index'
 
 export default function GoogleButton() {
-  const loginWithGoogle = useAuthStore((state) => state.loginWithGoogle)
+  const loginWithGoogle = authStore((state) => state.loginWithGoogle)
 
   return (
     <button

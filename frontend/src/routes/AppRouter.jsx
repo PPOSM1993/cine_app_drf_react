@@ -4,7 +4,7 @@ import {
   WelcomePage,
   Home,
   PrivateRoute,
-  Profile
+  Login
 } from "../index"
 
 export default function AppRouter() {
@@ -12,11 +12,11 @@ export default function AppRouter() {
     <Routes>
       {/* 🔓 Rutas públicas */}
       <Route path="/" element={<WelcomePage />} />
+      <Route path="/login" element={<Login />} />
 
       {/* 🔐 Rutas protegidas */}
       <Route element={<PrivateRoute />}>
         <Route path="/home" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
         {/* Agrega aquí otras rutas privadas como /dashboard, /profile, etc. */}
       </Route>
 
