@@ -1,70 +1,47 @@
-import { create } from 'zustand'
-import { auth, provider } from '../firebase/config'
-import { signInWithPopup, signOut } from 'firebase/auth'
-import { axios } from '../index' // tu configuración con interceptor del token
+// authStore.js
+import { create } from "zustand"
+import { persist } from "zustand/middleware"
+import axios from "axios"
 
-const useAuthStore = create((set) => ({
-  user: null,
+export const authStore = create(
+  persist(
+    (set) => ({
+      user: null,
+      isAuthenticated: false,
 
-  setUser: (userData) => set({ user: userData }),
-  fetchUser: async () => {
-    try {
-      const access = localStorage.getItem("access");
-      if (access) {
-        const res = await axios.get("/api/auth/user/", {
-          headers: {
-            Authorization: `Bearer ${access}`,
-          },
-        });
-        set({ user: res.data });
-      }
-    } catch (error) {
-      console.error("Error al cargar usuario:", error);
-      set({ user: null });
+      login: async (formData) => {
+        try {
+          const res = await axios.post(
+            "http://localhost:8000/api/authentication/login/",
+            formData,
+            { withCredentials: true }
+          )
+
+          set({
+            user: res.data.user,
+            isAuthenticated: true,
+          })
+
+          return { success: true, data: res.data }
+        } catch (err) {
+          console.error("Login error:", err.response?.data || err.message)
+          return {
+            success: false,
+            error: err.response?.data || { detail: "Error desconocido" },
+          }
+        }
+      },
+
+      logout: () => {
+        set({ user: null, isAuthenticated: false })
+      },
+    }),
+    {
+      name: "auth-storage", // nombre de la key en localStorage
+      partialize: (state) => ({
+        user: state.user,
+        isAuthenticated: state.isAuthenticated,
+      }),
     }
-  },
-
-
-  // 🔵 LOGIN CON GOOGLE (Firebase)
-  loginWithGoogle: async () => {
-    try {
-      const result = await signInWithPopup(auth, provider)
-      set({ user: result.user })
-    } catch (error) {
-      console.error('Error al iniciar sesión con Google:', error)
-    }
-  },
-
-  // 🔵 LOGIN CON DJANGO JWT
-  loginWithCredentials: async (username, password) => {
-    try {
-      const { data } = await axios.post('/authentication/login/', {
-        username,
-        password,
-      })
-
-      // Guarda tokens
-      localStorage.setItem('access', data.access)
-      localStorage.setItem('refresh', data.refresh)
-
-      // Obtener datos del usuario autenticado
-      const res = await axios.get('/authentication/user/')
-      set({ user: res.data })
-
-      return true
-    } catch (err) {
-      console.error('Login JWT falló:', err)
-      throw err
-    }
-  },
-
-  // 🔴 LOGOUT UNIFICADO
-  logout: async () => {
-    await signOut(auth).catch(() => { }) // Ignora errores si no estás en Google
-    localStorage.removeItem('access')
-    localStorage.removeItem('refresh')
-    set({ user: null })
-  },
-}))
-
-export default useAuthStore
+  )
+)
