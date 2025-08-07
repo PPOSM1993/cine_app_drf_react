@@ -61,12 +61,22 @@ MIDDLEWARE = [
 
 ]
 
+S_ALLOW_ALL_ORIGINS = False  # ⛔️ NO usar esto con credenciales
+
+
 
 CORS_ALLOWED_ORIGINS = [
     #"https://example.com",
     #"https://sub.example.com",
     "http://localhost:5173",
     #"http://127.0.0.1:9000",
+]
+
+
+CORS_ALLOW_CREDENTIALS = True  # ✅ NECESARIO
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
 ]
 
 ROOT_URLCONF = 'cine_core.urls'
