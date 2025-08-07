@@ -24,7 +24,7 @@ export default function HeroWelcome() {
           Explora las mejores películas del universo, desde clásicos hasta lo último en cartelera.
         </p>
 
-        {!user && (
+
           <div className="mt-8 flex gap-4">
             <Link
               to="/login"
@@ -39,7 +39,6 @@ export default function HeroWelcome() {
               Registrarse
             </Link>
           </div>
-        )}
       </div>
     </div>
   );
