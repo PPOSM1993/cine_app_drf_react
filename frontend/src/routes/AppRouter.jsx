@@ -1,5 +1,6 @@
-import React from "react"
+// AppRouter.jsx
 import { Routes, Route, Navigate } from "react-router-dom"
+import { authStore } from "../index"
 import {
   WelcomePage,
   Home,
@@ -8,16 +9,20 @@ import {
 } from "../index"
 
 export default function AppRouter() {
+  const isAuthenticated = authStore((state) => state.isAuthenticated)
+
   return (
     <Routes>
       {/* 🔓 Rutas públicas */}
       <Route path="/" element={<WelcomePage />} />
-      <Route path="/login" element={<Login />} />
+      <Route
+        path="/login"
+        element={isAuthenticated ? <Navigate to="/home" /> : <Login />}
+      />
 
       {/* 🔐 Rutas protegidas */}
       <Route element={<PrivateRoute />}>
         <Route path="/home" element={<Home />} />
-        {/* Agrega aquí otras rutas privadas como /dashboard, /profile, etc. */}
       </Route>
 
       {/* Ruta catch-all */}

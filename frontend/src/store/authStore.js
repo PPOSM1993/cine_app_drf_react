@@ -8,6 +8,7 @@ export const authStore = create(
     (set) => ({
       user: null,
       isAuthenticated: false,
+      hydrated: false, // NUEVO
 
       login: async (formData) => {
         try {
@@ -37,11 +38,14 @@ export const authStore = create(
       },
     }),
     {
-      name: "auth-storage", // nombre de la key en localStorage
+      name: "auth-storage",
       partialize: (state) => ({
         user: state.user,
         isAuthenticated: state.isAuthenticated,
       }),
+      onRehydrateStorage: () => (state) => {
+        state.setState({ hydrated: true }) // MARCA CUANDO TERMINA LA HIDRATACIÓN
+      },
     }
   )
 )
