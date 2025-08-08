@@ -5,7 +5,8 @@ import {
   WelcomePage,
   Home,
   PrivateRoute,
-  Login
+  Login,
+  Register
 } from "../index"
 
 export default function AppRouter() {
@@ -18,6 +19,10 @@ export default function AppRouter() {
       <Route
         path="/login"
         element={isAuthenticated ? <Navigate to="/home" /> : <Login />}
+      />
+      <Route
+        path="/register"
+        element={isAuthenticated ? <Navigate to="/home" /> : <Register />}
       />
 
       {/* 🔐 Rutas protegidas */}

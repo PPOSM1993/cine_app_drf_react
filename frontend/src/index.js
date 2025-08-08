@@ -24,10 +24,10 @@ export { default as WelcomeContent } from './components/organisms/WelcomeContent
 export { default as Home } from './components/pages/Home';
 export { default as Profile } from './components/pages/Profile';
 export { default as WelcomePage } from './components/pages/WelcomePage';
+export { default as Login } from './components/pages/auth/Login';
+export { default as Register } from './components/pages/auth/Register';
 export * from './firebase/config';
 export * from './main';
-export { default as Login } from './pages/auth/Login';
-//export { default as Profile } from './pages/auth/Profile';
 export { default as AppRouter } from './routes/AppRouter';
 export { default as PrivateRoute } from './routes/PrivateRoute';
 export * from './store/authStore';
