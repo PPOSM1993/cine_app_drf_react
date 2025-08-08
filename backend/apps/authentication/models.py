@@ -18,6 +18,7 @@ class UserManager(BaseUserManager):
             rut=rut,
             **extra_fields
         )
+        user.is_active = True  # Activar automáticamente
         user.set_password(password)
         user.save(using=self._db)
         return user
