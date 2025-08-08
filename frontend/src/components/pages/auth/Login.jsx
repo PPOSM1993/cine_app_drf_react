@@ -47,9 +47,9 @@ const Login = () => {
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#0f172a] to-[#1e293b] px-4 py-20">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-1 mb-5">
-        <img src={logo} alt="Logo Cine" className="h-70 w-auto" />
-      </div>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-1 mb-5">
+                <img src={logo} alt="Logo Cine" className="h-70 w-auto" />
+            </div>
 
 
             <div className="w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 space-y-6">
