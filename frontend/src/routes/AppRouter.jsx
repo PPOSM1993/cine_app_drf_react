@@ -6,7 +6,8 @@ import {
   Home,
   PrivateRoute,
   Login,
-  Register
+  Register,
+  Profile
 } from "../index"
 
 export default function AppRouter() {
@@ -28,6 +29,7 @@ export default function AppRouter() {
       {/* 🔐 Rutas protegidas */}
       <Route element={<PrivateRoute />}>
         <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
 
       {/* Ruta catch-all */}
