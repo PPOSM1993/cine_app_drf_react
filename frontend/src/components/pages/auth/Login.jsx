@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { authStore } from "../../index"
-import logo from "../../assets/logo.png" // Asegúrate de tener una imagen de logo 
+import { authStore } from "../../../index"
+import logo from "../../../assets/logo.png" // Asegúrate de tener una imagen de logo 
+
+
 const Login = () => {
     const navigate = useNavigate()
     const { login, token } = authStore()
